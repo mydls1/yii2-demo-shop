@@ -17,7 +17,19 @@ return [
         '@staticRoot' => $params['staticPath'],
         '@static'   => $params['staticHostInfo'],
     ],
+    'layout' => 'blank',
     'controllerNamespace' => 'frontend\controllers',
+    'container' => [
+        'definitions' => [
+            'yii\widgets\Breadcrumbs' => [
+                'homeLink' => [
+                    'label' => '<i class="fa fa-home"></i>',
+                    'encode' => false,
+                    'url' => Yii::$app->homeUrl,
+                ],
+            ],
+        ],
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
